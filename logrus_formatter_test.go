@@ -24,6 +24,4 @@ func TestFormatter_print(t *testing.T) {
 	logrus.Info("info msg")
 	logrus.Warn("warn msg")
 	logrus.Error("error msg")
-	//logrus.Fatal("fatal msg")
-	//logrus.Panic("panic msg")
 }
