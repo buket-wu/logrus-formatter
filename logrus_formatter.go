@@ -101,6 +101,11 @@ func (f *Formatter) Format(entry *logrus.Entry) ([]byte, error) {
 		fmt.Fprintf(b, "\x1b[%dm", levelColor)
 	}
 
+	// write ctx id
+	if !f.DisableGoId {
+		b.WriteString(f.getCtxId())
+	}
+
 	b.WriteString(entry.Time.Format(timestampFormat))
 
 	b.WriteString(" [")
@@ -110,11 +115,6 @@ func (f *Formatter) Format(entry *logrus.Entry) ([]byte, error) {
 		b.WriteString(level[:4])
 	}
 	b.WriteString("]")
-
-	// write ctx id
-	if !f.DisableGoId {
-		b.WriteString(f.getCtxId())
-	}
 
 	if !f.CallerFirst {
 		f.writeCaller(b, entry)
