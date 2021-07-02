@@ -1,9 +1,8 @@
-package text_formatter
+package logrus_formatter
 
 import (
 	"bytes"
 	"fmt"
-	"github.com/petermattis/goid"
 	"runtime"
 	"sort"
 	"strings"
@@ -240,10 +239,6 @@ func getColorByLevel(level logrus.Level) int {
 	default:
 		return colorBlue
 	}
-}
-
-func getGoId() int64 {
-	return goid.Get()
 }
 
 func (f *Formatter) getCtxId() string {

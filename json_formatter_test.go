@@ -1,4 +1,4 @@
-package text_formatter
+package logrus_formatter
 
 import (
 	"github.com/sirupsen/logrus"
@@ -6,14 +6,12 @@ import (
 	"testing"
 )
 
-func TestFormatter_print(t *testing.T) {
-	//SetCtxId(uuid.New())
-	f := NewFormatter(false)
-	//f.SetCtxId(uuid.NewString())
-
+func TestLogrus(t *testing.T) {
 	logrus.SetLevel(logrus.TraceLevel)
 
 	logrus.SetReportCaller(true)
+
+	f := NewJsonFormatter(false)
 
 	logrus.SetFormatter(f)
 
@@ -24,4 +22,5 @@ func TestFormatter_print(t *testing.T) {
 	logrus.Info("info msg")
 	logrus.Warn("warn msg")
 	logrus.Error("error msg")
+
 }
