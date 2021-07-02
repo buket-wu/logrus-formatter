@@ -1,4 +1,4 @@
-package logrus_formatter
+package text_formatter
 
 import (
 	"github.com/sirupsen/logrus"
